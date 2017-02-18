@@ -52,3 +52,19 @@ through each pair of values for (i, j) where j is bigger than i.
 There are N^2 total pairs. Roughly hlaf those will have i < j and the remaining half will have i > j. This
 code goes through  roughly N^2/2 pairs so it does O(N^2) work.
 */
+
+
+/* Example 4 */
+void printUnordoredPairs(int[] arrayA, int[] arrayB) {
+  for (int i = 0; i < arrayA.length; i++) {
+    for (int j = 0; j < arrayB.length; j++) {
+      if (arrayA[i] < arrayB[j]) {
+        System.out.println(arrayA[i] + "," + arrayB[j]); /* O(1) work */
+      }
+    }
+  }
+}
+/* For each element of arrayA, the inner loop goes through b iterations, where b = arrayB.length.
+If a = arrayA.length, then the runtime is O(ab).
+It's a commoon mistake to assume that the runtime is O(N^2), but it's not because there are 2 different
+inputs. Both matter. This os exetremely common mistake. */
