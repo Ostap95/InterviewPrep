@@ -68,3 +68,32 @@ void printUnordoredPairs(int[] arrayA, int[] arrayB) {
 If a = arrayA.length, then the runtime is O(ab).
 It's a commoon mistake to assume that the runtime is O(N^2), but it's not because there are 2 different
 inputs. Both matter. This os exetremely common mistake. */
+
+
+/* Example 5 */
+void reverse(int[] array) {
+  for (int i = 0; i < array.length / 2; i++) {
+    int other = array.length - i - 1;
+    int temp = array[i];
+    array[i] = array[other];
+    array[other] = temp;
+  }
+}
+/* This algorithm runs in O(N) time. The fact that it only goes through half of the array (in terms of iterations)
+does not impact the big O time. */
+
+
+/* Example 6 */
+/* Which of the following are equivalent to O(N)? Why?
+-> O(N + P), where P < N/2.
+-> O(2N).
+-> O(N + logN).
+-> O(N + M).
+
+R:
+1) if p<N/2, then we know that N is the doinant term so we can drop the O(P).
+2) O(2N) is O(N) since we drop constants.
+3) O(N) dominates O(log N), so we can drop the O(log N).
+4) There is no established relationships between N and M, so we have to keep both variables in there.
+Therefore, all but the last one are equivalent to O(N).
+*/
